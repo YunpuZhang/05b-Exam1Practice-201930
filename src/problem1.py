@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Karl.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# DONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -137,7 +137,23 @@ def run_test_problem1a():
     actual = problem1a(30, 100)
     print_actual_result_of_test(expected, actual, test_results, precision=3)
 
+    # Test 3:
+    expected = 0  # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([0, 0], expected, test_results,
+                                  format_string)
+    actual = problem1a(0, 0)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+    # Test 4:
+    expected =0.84147   # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([0, 1], expected, test_results,
+                                  format_string)
+    actual = problem1a(0, 1)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
     print_summary_of_test_results(test_results)
+
+
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -151,6 +167,11 @@ def run_test_problem1a():
 
 
 def problem1a(m, n):
+    import math
+    sum=0
+    for k in range(m**2,(n**2)+1):
+        sum=sum+math.sin(k)
+    return(sum)
     """
     What comes in:  Integers m and n with abs(m) <= abs(n).
     What goes out:
@@ -168,7 +189,7 @@ def problem1a(m, n):
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -179,6 +200,30 @@ def problem1a(m, n):
 
 
 def run_test_problem1b():
+
+    #Test1
+    expected=1
+    actual=problem1b(2,1)
+    print('Test 1 expected',expected)
+    print('    actual:  ',actual)
+
+    # Test2
+    expected = 2
+    actual = problem1b(2, 2)
+    print('Test 2 expected', expected)
+    print('    actual:  ', actual)
+
+    # Test1
+    expected = 3
+    actual = problem1b(2, 3)
+    print('Test 2 expected', expected)
+    print('    actual:  ', actual)
+
+    # Test1
+    expected = 4
+    actual = problem1b(2, 4)
+    print('Test 2 expected', expected)
+    print('    actual:  ', actual)
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
     # TODO: 5. Implement this TEST function.
@@ -201,6 +246,13 @@ def run_test_problem1b():
 
 
 def problem1b(m, f):
+    count=0
+    for k in range(m,m*f+1):
+        if is_prime(k)==True:
+            count=count+1
+    return(count)
+
+
     """
     What comes in:  Positive integers m and f such that m >= 2.
     What goes out:
@@ -217,7 +269,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ###########################################################################
@@ -290,6 +342,14 @@ def run_test_problem1c():
 
 
 def problem1c(n):
+    product=1
+    for k in range(2,n+1):
+        if is_prime(k)==True:
+            product=product*k
+    total=sum_of_digits(product)
+    return(total)
+
+
     """
     What comes in:  An integer n >= 2.
     What goes out:
@@ -314,7 +374,7 @@ def problem1c(n):
            and the sum of the digits in 223092870 is 33.
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
