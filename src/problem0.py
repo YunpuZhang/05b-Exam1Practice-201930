@@ -317,12 +317,9 @@ def run_test_problem0c():
 def problem0c(circle, n, window):
     circle.attach_to(window)
     for k in range(n):
-        circle1=rg.Circle(rg.Point(circle.center.x+2*(k+1)*circle.radius,circle.center.y),circle.radius)
+        circle1=rg.Circle(circle.center,circle.radius)
+        circle1.center.x=circle1.center.x+2*(k+1)*circle.radius
         circle1.attach_to(window)
-
-
-
-
     window.render(0.5)
     """
     See   problem0c_picture.pdf   in this project for pictures
